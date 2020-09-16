@@ -1,0 +1,50 @@
+.account__header__main {
+	/* position: sticky; */
+	padding: 20px 40px 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #56638a;
+	color: white;
+}
+
+.account__header__main > h1 {
+	font-size: 58px;
+}
+
+.user__icon {
+	border-radius: 50%;
+}
+
+.account__dropdown {
+	font-size: 24px;
+}
+
+.account__data {
+	font-size: 24px;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.account__data__name {
+	color: #56638a;
+	font-weight: 600;
+}
+
+.account__data__value {
+	color: #56638a;
+	background-color: #fafafa;
+	border-radius: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 200px;
+	font-weight: 600;
+}
+
+.border__bottom {
+	border-bottom: 1px solid #56638a;
+}

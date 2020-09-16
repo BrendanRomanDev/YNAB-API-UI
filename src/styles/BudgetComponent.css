@@ -1,0 +1,79 @@
+.budgetHeader {
+	margin: 30px auto 40px;
+	padding: 0 40px;
+}
+.budgetHeader > h1 {
+	color: #ff686b;
+}
+.budgetHeader > hr {
+	width: 99%;
+	border: 2px solid #ff686b;
+}
+
+.expense__container {
+	padding: 0 40px;
+}
+
+.transactionCard {
+	margin-bottom: 10px;
+	background-color: #cbffe7;
+	border-radius: 5px;
+}
+
+.transactionCard__header {
+	font-size: 24px;
+	font-weight: 500;
+	padding: 10px;
+	text-align: center;
+	color: white;
+	background-color: #8e99b8;
+	border-radius: 5px 5px 0 0;
+}
+
+.transactionCard__body {
+	padding: 15px;
+}
+.transactionCard__body > * {
+	font-size: 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px;
+	margin-bottom: 8px;
+	border-radius: 6px;
+	background-color: white;
+}
+
+.tvalue {
+	font-weight: 500;
+	padding: 5px;
+	border-radius: 4px;
+	text-align: center;
+	width: 50%;
+}
+
+.transaction__date {
+	background-color: #8e99b8;
+	color: white;
+}
+
+.transaction__value {
+	background-color: #8e99b8;
+	color: white;
+}
+
+.transaction__value__positive {
+	background-color: #84dcc6;
+	color: #025a00;
+}
+
+.transaction__value__negative {
+	background-color: #ffa69e;
+	color: white;
+}
+
+.row__title {
+	font-size: 20px;
+	font-weight: 500;
+	color: #56638a;
+}

@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import AccountHeader from './components/AccountHeader';
+import BudgetComponent from './components/BudgetComponent';
+import { users, accounts, transData } from './data';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [ user, setUser ] = useState({ id: 0 });
+
+	const selectUser = (user) => {
+		setUser(user);
+	};
+
+	return (
+		<div className="app">
+			<AccountHeader selectUser={selectUser} />
+			<BudgetComponent />
+		</div>
+	);
 }
 
 export default App;
