@@ -2,11 +2,11 @@
 * A personal dashboard UI, built to interact with the YNAB (YouNeedABudget) API.
 
 
-[Mobile Collapsed](/YNAB-API-UI/wireframes/YNAB Home Mobile.png)
-[Mobile Expanded](./wireframes/YNAB Home Expanded Mobile.png)
-[Desktop Collapsed](./wireframes/YNAB Home.png)
-[Desktop Expanded](./wireframes/Home Expanded.png)
-
+![Mobile Collapsed](wireframes/YNABHomeMobile.png)
+![Mobile Expanded](wireframes/YNABHomeExpandedMobile.png)
+![Desktop Collapsed](wireframes/YNABHome.png)
+![Desktop Expanded](wireframes/HomeExpanded.png)
+=======
 
 ### Resources
 * ReactJS/Create-react-app
