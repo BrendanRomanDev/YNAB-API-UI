@@ -11,13 +11,24 @@
 }
 
 .expense__container {
-	padding: 0 40px;
+	padding: 0 40px 200px;
 }
 
 .transactionCard {
 	margin-bottom: 10px;
 	background-color: #cbffe7;
 	border-radius: 5px;
+}
+
+.transactionCard__date {
+	color: #b5b5b5;
+	border-bottom: 2px solid #b5b5b5;
+	margin-bottom: 10px;
+	width: 90%;
+}
+.transactionCard__date__value {
+	font-weight: 500;
+	font-size: 24px;
 }
 
 .transactionCard__header {
@@ -33,6 +44,7 @@
 .transactionCard__body {
 	padding: 15px;
 }
+
 .transactionCard__body > * {
 	font-size: 20px;
 	display: flex;
@@ -52,9 +64,11 @@
 	width: 50%;
 }
 
-.transaction__date {
-	background-color: #8e99b8;
-	color: white;
+.transaction__account {
+	font-size: 20px;
+	font-weight: 500;
+	color: #56638a;
+	background-color: lightgrey;
 }
 
 .transaction__value {

@@ -1,0 +1,65 @@
+.budgetScroller {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	color: white;
+	text-align: center;
+	padding: 20px 0;
+	background-color: #56638a;
+}
+
+.blue-bar {
+	position: absolute;
+	background-color: #8e99b8;
+	width: 100%;
+	height: 15px;
+	top: -10px;
+	left: 0;
+}
+
+.budgetScroller__title h4 {
+	font-size: 20px;
+}
+
+/* //this one css line came with the package */
+.menu-item-wrapper:focus {
+	outline-width: 0;
+}
+
+.menu-item__wrapper {
+	background-color: white;
+	border-radius: 3px;
+}
+
+.menu-item {
+	font-size: 22px;
+	text-align: center;
+	color: black;
+	margin: 0 25px 10px;
+	user-select: none;
+	cursor: pointer;
+	border: none;
+	outline-width: 0;
+	min-width: 220px;
+}
+
+.menu-item__title {
+	background: #ff686b;
+	padding: 10px 0;
+	color: white;
+	font-weight: 500;
+}
+
+.menu-item__value {
+	padding: 15px 0;
+}
+
+.menu-item__value > h1 {
+	font-size: 40px;
+}
+
+.scroll-menu-arrow {
+	padding: 20px;
+	cursor: pointer;
+}

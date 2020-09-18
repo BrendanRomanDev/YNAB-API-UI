@@ -1,106 +1,65 @@
-import React from 'react';
-import '../styles/AccountHeader.css';
-import { withStyles } from '@material-ui/core/styles';
-import MuiAccordion from '@material-ui/core/Accordion';
-import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
-import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import React, { useRef, useEffect, useState } from 'react';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { AccountCircleRounded } from '@material-ui/icons';
+import '../styles/AccountHeader.css';
+
+const useOutsideClick = (ref, callback) => {
+	const handleClick = (e) => {
+		if (ref.current && !ref.current.contains(e.target)) {
+			callback();
+		}
+	};
+	useEffect(() => {
+		document.addEventListener('click', handleClick);
+
+		return () => {
+			document.removeEventListener('click', handleClick);
+		};
+	});
+};
 
 function AccountHeader() {
+	const [ userExpand, setUserExpand ] = useState(false);
+	const showMenu = () => {
+		if (userExpand) {
+			return;
+		}
+	};
+	const ref = useRef();
+	useOutsideClick(ref, () => {
+		setUserExpand(false);
+	});
+
 	return (
 		<div className="account__header">
 			<div className="account__header__main">
 				<h1>Hello, Mat</h1>
-				<AccountCircleRounded className="drop__shadow user__icon" fontSize="large" />
+				<AccountCircleRounded
+					ref={ref}
+					onClick={() => setUserExpand(!userExpand)}
+					className="drop__shadow user__icon"
+					fontSize="large"
+				/>
 			</div>
-			<AccountAccordion />
+			<UserSelect userExpand={userExpand} />
 		</div>
 	);
 }
 
-export const AccountAccordion = () => {
-	const [ expanded, setExpanded ] = React.useState(false);
-	const handleChange = (panel) => (event, newExpanded) => {
-		setExpanded(newExpanded ? panel : false);
-	};
-
+function UserSelect({ userExpand }) {
 	return (
-		<div>
-			<Accordion square expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-				<AccordionSummary
-					expandIcon={<ExpandMoreIcon style={{ color: 'white' }} />}
-					aria-controls="panel1d-content"
-					id="panel1d-header"
-				>
-					<h3 className="account__dropdown">Accounts</h3>
-				</AccordionSummary>
-				<AccordionDetails className="border__bottom">
-					<AccountData />
-				</AccordionDetails>
-				<AccordionDetails className="border__bottom">
-					<AccountData />
-				</AccordionDetails>
-			</Accordion>
-		</div>
+		<TransitionGroup component={null}>
+			{userExpand && (
+				<CSSTransition in={userExpand} timeout={300} classNames="user-menu">
+					<div className="user__select">
+						<h5 className="user__select__title">User</h5>
+						<h5 className="user__select__name">Mat</h5>
+						<h5 className="user__select__name">Brendan</h5>
+					</div>
+				</CSSTransition>
+			)}
+		</TransitionGroup>
 	);
-};
-
-export const AccountData = () => {
-	return (
-		<div className="account__data">
-			<h4 className="account__data__name">GFCU</h4>
-			<div className="account__data__value drop__shadow">$4,075</div>
-		</div>
-	);
-};
+}
 
 export default AccountHeader;
-
-const Accordion = withStyles({
-	root     : {
-		backgroundColor      : '#8E99B8',
-		color                : 'white',
-		border               : '1px solid rgba(0, 0, 0, .125)',
-		boxShadow            : 'none',
-		'&:not(:last-child)' : {
-			borderBottom : 0
-		},
-		'&:before'           : {
-			display : 'none'
-		},
-		'&$expanded'         : {
-			margin : 'auto'
-		}
-	},
-	expanded : {}
-})(MuiAccordion);
-
-const AccordionSummary = withStyles({
-	root     : {
-		paddingLeft  : '40px',
-		paddingRight : '40px',
-		borderBottom : '1px solid rgba(0, 0, 0, .125)',
-		marginBottom : -1,
-		minHeight    : 56,
-		'&$expanded' : {
-			minHeight : 56
-		}
-	},
-	content  : {
-		'&$expanded' : {
-			margin : '12px 0'
-		}
-	},
-	expanded : {}
-})(MuiAccordionSummary);
-
-const AccordionDetails = withStyles((theme) => ({
-	root : {
-		paddingLeft     : '40px',
-		paddingRight    : '40px',
-		backgroundColor : '#EBEEF4',
-		color           : '#8E99B8',
-		padding         : theme.spacing(2)
-	}
-}))(MuiAccordionDetails);
